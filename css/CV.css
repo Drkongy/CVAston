@@ -385,18 +385,41 @@ a:visited {
 }
 
 
+/* this is for the search bar */
+
+.bar {
+    border: 1px solid white;
+    border-radius: 4px;
+    background-color: #303030;
+    text-align: center;
+    transition: 0.3s;
+    border: 1px solid #fff;
+    border-radius: 14px;
+    outline: none;
+    color: white;
+    height: 30px;
+    width: 500px;
+    margin-bottom: 20px;
+}
+
+.search {
+    height: 30px;
+    border: 1px solid white;
+    border-radius: 4px;
+    background-color: #303030;
+    text-align: center;
+    transition: 0.3s;
+    border: 1px solid #fff;
+    border-radius: 14px;
+    color: white;
+    margin-bottom: 20px;
+    width: 200px;
+}
+
+
 /* This is for the Footer*/
 
 .footer {
-    /* padding: 10px 0;
-    background-color: #202020;
-    bottom: 0;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100vw; */
     padding: 10px 0;
     background-color: #202020;
     bottom: 0;

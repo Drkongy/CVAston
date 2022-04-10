@@ -1,3 +1,11 @@
+<!-- author notes 
+Zeeshan Mohammed
+Portfolio 3: http://210052026.cs2410-web01pvm.aston.ac.uk/CVAston/Home.php
+-->
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -43,16 +51,19 @@
             </nav>
          </header>
          <div>
+
+
             <?php
-               $db_user = "root";
-               $db_pass = "";
-               $db_name = "astoncv";
-               $db_server = "localhost";
+            // connects to the database
+            $db_user = "u-210052026";
+            $db_pass = "GlC1LK8UUMSXAjb";
+            $db_name = "u-210052026_astoncv";
+            $db_server = "localhost";
                
                
                
                $conn = mysqli_connect($db_server, $db_user, $db_pass, $db_name);
-               session_start();
+               session_start(); // starts the session so that data can read.
                
                if (!$conn) {
                    die("Connection failed: " . mysqli_connect_error());
@@ -63,10 +74,9 @@
                $error = "";
                $LoggedIn = false;
                $name = "";
-               // $error = "Logged in as " . $name;
                
                
-               if(isset($_POST['submit'])){
+               if(isset($_POST['submit'])){ // when the submit button is pressed for the loggin form
                    $email = $_POST['email'];
                    $password = $_POST['password'];
                    $sql = "SELECT * FROM cvs";
@@ -91,19 +101,16 @@
                            }
                        }
                    }    
-                   
-               
-               
-                   mysqli_close($conn);
+                   mysqli_close($conn); // closes the connection
                    
                }
                
                
-               if(isset($_POST['Logout'])){
+               if(isset($_POST['Logout'])){ // this is for when the user wants to log out
                    $LoggedIn = false;
                    session_unset();
                    session_destroy();
-                   header("Location: Home.php");
+                   header("Location: Home.php"); // refreshes the page so the user can log out.
                
                }
                
@@ -113,8 +120,6 @@
                
                ?>
          </div>
-         <!-- test -->
-         <!-- small infomaiton about me -->
          <main class="Main-Panel">
             <?php
                if(isset($_SESSION['email'])){
@@ -126,14 +131,9 @@
                }
                ?>
          </main>
-         <!-- cool footer that has icons that links to different pages of mine -->
          <section class="footer" style="z-index: 1;">
             <?php 
-               if(!isset($_SESSION['email'])){
-               
-               
-               
-               
+               if(!isset($_SESSION['email'])){ // this is shown if there isnt a session (no one logged in.)
                ?>
             <div class="Login-Panel">
                <div class="Login-Panel-Body">
@@ -154,7 +154,7 @@
                }
                else{
                
-               
+               // otherwise this is shown if there is a session (someone is logged in.)
                  
                ?>
             <label class="control-label"><?php echo "Logged in as ".$_SESSION["name"]. "!"; ?></label>
@@ -170,6 +170,8 @@
                
                ?>    
          </section>
-         <script src="js/Nav.js"></script>
+         <!-- the script makes the navigation bar aniamted. -->
+         <script src="js/Nav.js"></script> 
+
    </body>
 </html>
